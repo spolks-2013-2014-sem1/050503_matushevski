@@ -18,7 +18,7 @@ def start_server(PORT):
 		data = conn.recv(1024)
 		if not data: break
 		conn.send(data)
-		if data.rstrip() == "finish him":								#catching exit 
+		if data.rstrip() == "finish him":					#catching exit 
 			print 'Oh no, its the end...I was so young...'
 			conn.shutdown(socket.SHUT_RDWR)
 			break
@@ -27,10 +27,10 @@ def start_server(PORT):
 	
 
 def main():
-	if len(sys.argv) != 2:												#default port
+	if len(sys.argv) != 2:								#default port
 		print 'Without argument will be using default port 50000'
 		start_server(50000)
-	else:																#input port
+	else:										#input port
 		PORT = int(sys.argv[1])
 		print 'Will be using port', sys.argv[1]
 		start_server(PORT)
